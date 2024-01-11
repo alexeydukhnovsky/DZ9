@@ -1,0 +1,77 @@
+Script started on 2024-01-11 12:31:41+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="211" LINES="50"]
+[?2004h]0;alexey@UbuntuOTUS: ~/DZ9[01;32malexey@UbuntuOTUS[00m:[01;34m~/DZ9[00m$ [K]0;alexey@UbuntuOTUS: ~/DZ9[01;32malexey@UbuntuOTUS[00m:[01;34m~/DZ9[00m$ [K]0;alexey@UbuntuOTUS: ~/DZ9[01;32malexey@UbuntuOTUS[00m:[01;34m~/DZ9[00m$ vagrant ssh
+[?2004l]0;vagrant@dzsystemd:~[vagrant@dzsystemd ~]$ sudo -i
+]0;root@dzsystemd:~[root@dzsystemd ~]# tail -f /var/log/messages
+Jan 11 09:31:55 centos8s systemd[30132]: Starting D-Bus User Message Bus Socket.
+Jan 11 09:31:55 centos8s systemd[30132]: Reached target Timers.
+Jan 11 09:31:55 centos8s systemd[30132]: Reached target Paths.
+Jan 11 09:31:55 centos8s systemd[30132]: Listening on D-Bus User Message Bus Socket.
+Jan 11 09:31:55 centos8s systemd[30132]: Reached target Sockets.
+Jan 11 09:31:55 centos8s systemd[30132]: Reached target Basic System.
+Jan 11 09:31:55 centos8s systemd[30132]: Reached target Default.
+Jan 11 09:31:55 centos8s systemd[30132]: Startup finished in 142ms.
+Jan 11 09:31:55 centos8s systemd[1]: Started User Manager for UID 1000.
+Jan 11 09:31:55 centos8s systemd[1]: Started Session 4 of user vagrant.
+Jan 11 09:32:14 centos8s systemd[1]: Starting My Watchlog service...
+Jan 11 09:32:14 centos8s root[30203]: Thu Jan 11 09:32:14 UTC 2024: I found word, Master!
+Jan 11 09:32:14 centos8s systemd[1]: watchlog.service: Succeeded.
+Jan 11 09:32:14 centos8s systemd[1]: Started My Watchlog service.
+Jan 11 09:32:44 centos8s systemd[1]: Starting My Watchlog service...
+Jan 11 09:32:44 centos8s root[30208]: Thu Jan 11 09:32:44 UTC 2024: I found word, Master!
+Jan 11 09:32:44 centos8s systemd[1]: watchlog.service: Succeeded.
+Jan 11 09:32:44 centos8s systemd[1]: Started My Watchlog service.
+^C
+]0;root@dzsystemd:~[root@dzsystemd ~]# systemctl status spawn-fcgi
+[?1h=[0;1;32m●[0m spawn-fcgi.service - Spawn-fcgi startup service by Otus[m
+   Loaded: loaded (/etc/systemd/system/spawn-fcgi.service; disabled; vendor preset: disabled)[m
+   Active: [0;1;32mactive (running)[0m since Thu 2024-01-11 09:28:09 UTC; 4min 40s ago[m
+ Main PID: 8380 (php-cgi)[m
+    Tasks: 33 (limit: 1086)[m
+   Memory: 12.9M[m
+   CGroup: /system.slice/spawn-fcgi.service[m
+           ├─8380 /usr/bin/php-cgi[m
+           ├─8423 /usr/bin/php-cgi[m
+           ├─8424 /usr/bin/php-cgi[m
+           ├─8425 /usr/bin/php-cgi[m
+           ├─8426 /usr/bin/php-cgi[m
+           ├─8427 /usr/bin/php-cgi[m
+           ├─8428 /usr/bin/php-cgi[m
+           ├─8429 /usr/bin/php-cgi[m
+           ├─8430 /usr/bin/php-cgi[m
+           ├─8431 /usr/bin/php-cgi[m
+           ├─8432 /usr/bin/php-cgi[m
+           ├─8433 /usr/bin/php-cgi[m
+           ├─8434 /usr/bin/php-cgi[m
+           ├─8435 /usr/bin/php-cgi[m
+           ├─8436 /usr/bin/php-cgi[m
+           ├─8437 /usr/bin/php-cgi[m
+           ├─8438 /usr/bin/php-cgi[m
+           ├─8439 /usr/bin/php-cgi[m
+           ├─8440 /usr/bin/php-cgi[m
+           ├─8441 /usr/bin/php-cgi[m
+           ├─8442 /usr/bin/php-cgi[m
+           ├─8443 /usr/bin/php-cgi[m
+           ├─8444 /usr/bin/php-cgi[m
+           ├─8445 /usr/bin/php-cgi[m
+           ├─8446 /usr/bin/php-cgi[m
+           ├─8447 /usr/bin/php-cgi[m
+           ├─8448 /usr/bin/php-cgi[m
+           ├─8449 /usr/bin/php-cgi[m
+           ├─8450 /usr/bin/php-cgi[m
+           ├─8451 /usr/bin/php-cgi[m
+           ├─8452 /usr/bin/php-cgi[m
+           ├─8453 /usr/bin/php-cgi[m
+           └─8454 /usr/bin/php-cgi[m
+[m
+Jan 11 09:28:09 dzsystemd systemd[1]: Started Spawn-fcgi startup service by Otus.[m
+[K[?1l>]0;root@dzsystemd:~[root@dzsystemd ~]# ss -tnulp | grep httpd
+tcp   LISTEN 0      511          0.0.0.0:8008      0.0.0.0:*    users:(("[01;31m[Khttpd[m[K",pid=8928,fd=3),("[01;31m[Khttpd[m[K",pid=8927,fd=3),("[01;31m[Khttpd[m[K",pid=8926,fd=3),("[01;31m[Khttpd[m[K",pid=8925,fd=3),("[01;31m[Khttpd[m[K",pid=8701,fd=3))
+tcp   LISTEN 0      511          0.0.0.0:80        0.0.0.0:*    users:(("[01;31m[Khttpd[m[K",pid=8700,fd=3),("[01;31m[Khttpd[m[K",pid=8699,fd=3),("[01;31m[Khttpd[m[K",pid=8698,fd=3),("[01;31m[Khttpd[m[K",pid=8697,fd=3),("[01;31m[Khttpd[m[K",pid=8641,fd=3))
+]0;root@dzsystemd:~[root@dzsystemd ~]# exit
+logout
+]0;vagrant@dzsystemd:~[vagrant@dzsystemd ~]$ exit
+logout
+[?2004h]0;alexey@UbuntuOTUS: ~/DZ9[01;32malexey@UbuntuOTUS[00m:[01;34m~/DZ9[00m$ exit
+[?2004lexit
+
+Script done on 2024-01-11 12:33:09+03:00 [COMMAND_EXIT_CODE="0"]
